@@ -1,0 +1,42 @@
+title: Books
+
+options:
+  delete: false
+  changeTemplate: false
+
+tabs:
+  content:
+    label: Content
+    columns:
+      - width: 3/4
+        sections:
+          drafts_books:
+            label: Draft Books Items
+            type: pages
+            status: draft
+            layout: list
+            empty: No Books Item yet
+            search: true
+            pagination: true
+            sortBy: date desc
+            templates:
+              - book-post 
+          
+          published_books:
+            type: pages
+            label: Published Books Items
+            status: listed
+            layout: table
+            search: true
+            pagination: true
+            templates:
+              - book-post
+            image:
+              query: page.books_cover.toFile
+              cover: true
+            
+      - width: 1/4
+        sections:
+         
+  seo: tab/seo
+

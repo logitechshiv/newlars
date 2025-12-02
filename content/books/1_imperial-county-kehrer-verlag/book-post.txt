@@ -1,0 +1,68 @@
+Title: Imperial County, Kehrer Verlag
+
+----
+
+Books-cover: - file://27k5akvajnb3pzr3
+
+----
+
+Books-description: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+----
+
+Books-gallery:
+
+- 
+  books_itemtype: image
+  books_image:
+    - file://27k5akvajnb3pzr3
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://dkrwsr54fxsjgxcb
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: youtube
+  books_image: [ ]
+  books_video: [ ]
+  books_youtubeurl: >
+    https://www.youtube.com/watch?v=kQ8Zr1khFqI
+- 
+  books_itemtype: image
+  books_image:
+    - file://vkgfjquocpufrg9k
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://im7towdvgmhj5uvy
+  books_video: [ ]
+  books_youtubeurl: ""
+
+----
+
+Seodesc: 
+
+----
+
+Seoauthor: 
+
+----
+
+Seotags: 
+
+----
+
+Twitterimage: 
+
+----
+
+Fbtwdesc: 
+
+----
+
+Uuid: b3wyg0ukemk6mzbz

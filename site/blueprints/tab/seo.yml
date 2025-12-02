@@ -1,0 +1,49 @@
+label: SEO
+icon: search
+columns:
+  left:
+    width: 1/2
+    sections:
+      seostuff:
+        type: fields
+        fields:
+          headline2:
+            type: headline
+            label: Meta Informationen
+            numbered: false
+          seodesc:
+            label: Seiten Beschreibung
+            type: textarea
+            buttons: false
+          seoauthor:
+            label: "Seiten Autor*in"
+            type: text
+          seotags:
+            label: Keywords
+            type: tags
+  right2:
+    width: 1/2
+    sections:
+      seostuff3:
+        type: fields
+        fields:
+          rightheadline2:
+            type: headline
+            label: Sharing
+            numbered: false
+          twitterimage:
+            label: Vorschaubild beim Teilen
+            type: files
+            layout: cards
+            multiple: false
+            query: site.find("uploads").files
+            uploads:
+              parent: site.find("uploads")
+            image:
+              cover: true
+              back: white
+              ratio: 16/9
+          fbtwdesc:
+            label: Alternative Seitenbeschreibung beim Teilen
+            type: textarea
+            buttons: false

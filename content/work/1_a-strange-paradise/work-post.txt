@@ -1,0 +1,72 @@
+Title: A Strange Paradise
+
+----
+
+Work-cover: - file://vmqruq6iy3eoqyqk
+
+----
+
+Work-text: 
+
+----
+
+Work-tags: Commissioned, Portrait
+
+----
+
+Work-gallery:
+
+- 
+  work_itemtype: image
+  work_image:
+    - file://nchejs4qbhoqu1zq
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: image
+  work_image:
+    - file://jb5cdo5k4u4lows4
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: image
+  work_image:
+    - file://kruhnvxcmtyv0v5y
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: youtube
+  work_image: [ ]
+  work_video: [ ]
+  work_youtubeurl: >
+    https://www.youtube.com/watch?v=9AWO3f7PM2Y
+- 
+  work_itemtype: image
+  work_image:
+    - file://dx6c4negva3a3omm
+  work_video: [ ]
+  work_youtubeurl: ""
+
+----
+
+Cover: 
+
+----
+
+Text: 
+
+----
+
+Tags: 
+
+----
+
+Filetype: 
+
+----
+
+Gallery: 
+
+----
+
+Uuid: qcputamjx9ztozyw

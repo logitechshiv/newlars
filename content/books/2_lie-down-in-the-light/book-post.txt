@@ -1,0 +1,68 @@
+Title: Lie down in the Light
+
+----
+
+Books-cover: - file://lbwgjrfnsin9bmgz
+
+----
+
+Books-description: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+----
+
+Books-gallery:
+
+- 
+  books_itemtype: image
+  books_image:
+    - file://imcx14egnjh4ysw4
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://zknv7vyx9frzun8p
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://im7towdvgmhj5uvy
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://dkrwsr54fxsjgxcb
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://lbwgjrfnsin9bmgz
+  books_video: [ ]
+  books_youtubeurl: ""
+
+----
+
+Seodesc: 
+
+----
+
+Seoauthor: 
+
+----
+
+Seotags: 
+
+----
+
+Twitterimage: 
+
+----
+
+Fbtwdesc: 
+
+----
+
+Uuid: 1yhtqsx7khvb08ae

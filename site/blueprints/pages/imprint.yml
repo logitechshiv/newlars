@@ -1,0 +1,20 @@
+title: Imprint Page
+
+options:
+  delete: false
+  changeTemplate: false
+
+tabs:
+  content:
+    label: Content
+    columns:
+      main:
+        width: 1/1
+        sections:
+          content:
+            type: fields
+            fields:
+              imprint_blocks:
+                type: blocks
+                label: Imprint Content
+  seo: tab/seo

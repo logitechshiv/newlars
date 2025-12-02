@@ -1,0 +1,102 @@
+title: Site
+
+tabs:
+  general:
+    label: General Settings
+    icon: settings
+    columns:
+      - width: 1/2
+        sections:
+          drafts:
+            type: pages
+            label: Drafts
+            status: draft
+          unlisted:
+            type: pages
+            label: Unlisted pages
+            status: unlisted
+          published:
+            type: pages
+            label: Published pages
+            status: listed
+      - width: 1/2
+        sections:
+          header_main_menu:
+            type: fields
+            fields:
+              mainMenu:
+                type: structure
+                label: Header Main Menu
+                fields:
+                  linkTitle:
+                    type: text
+                    label: Link Text
+                  link:
+                    type: link
+                    label: Link
+                    options:
+                      - page
+                      - url
+                      - anchor
+                      - email
+                      - tel
+          settings:
+            type: fields
+            fields:
+              copyright:
+                type: text
+                label: Copyright text field
+              email:
+                type: email
+                label: Email Address
+              phone:
+                type: tel
+                label: Phone number Field
+              instagram:
+                type: link
+                label: Instagram Link
+                options:
+                  - url
+              imprint_link_field :
+                type: link
+                label: Imprint Link
+                options:
+                  - page
+  work:
+    label: Work/Project
+    icon: dashboard
+    columns:
+      - width: 1/1
+        sections:
+          work_drafts:
+            label: Draft Work Items
+            type: pages
+            parent: site.find('work')
+            status: draft
+            layout: list
+            empty: No Work Item yet
+            search: true
+            pagination: true
+            sortBy: date desc
+            templates:
+              - work-post 
+          
+          published_work:
+            type: pages
+            label: Published Work Items
+            parent: site.find('work')
+            status: listed
+            layout: table
+            search: true
+            pagination: true
+            templates:
+              - work-post
+            image:
+              query: page.work_cover.toFile
+              cover: true
+            columns:
+              work_tags:
+                label: Tags
+                type: tags
+      
+  seo: tab/seo

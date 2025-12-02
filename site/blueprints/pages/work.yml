@@ -1,0 +1,45 @@
+title: Work
+
+options:
+  delete: false
+  changeTemplate: false
+
+tabs:
+  content:
+    label: Content
+    columns:
+      - width: 3/4
+        sections:
+          drafts_work:
+            label: Draft Work Items
+            type: pages
+            status: draft
+            layout: list
+            empty: No Work Item yet
+            search: true
+            pagination: true
+            sortBy: date desc
+            templates:
+              - work-post 
+          
+          published_work:
+            type: pages
+            label: Published Work Items
+            status: listed
+            layout: table
+            search: true
+            pagination: true
+            templates:
+              - work-post
+            image:
+              query: page.work_cover.toFile
+              cover: true
+            columns:
+              work_tags:
+                label: Tags
+                type: tags
+      - width: 1/4
+        sections:
+         
+  seo: tab/seo
+

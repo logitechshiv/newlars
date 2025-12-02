@@ -1,0 +1,85 @@
+title: Work Item
+
+create:
+  status: draft
+
+tabs:
+  content:
+    label: Content
+    icon: text
+    columns:
+      main:
+        width: 1/2
+        sections:
+          content:
+            type: fields
+            fields:
+              work_cover:
+                type: files
+                label: Cover Image
+                multiple: false
+                query: model.images
+                query: site.find("uploads").files
+                uploads:
+                  parent: site.find("uploads")
+                layout: cards
+                image:
+                  cover: true
+              work_tags:
+                type: tags
+                label: Tags / Categories
+                options:
+                  - Commissioned
+                  - Personal
+                  - Portrait
+                  - Ride
+              work_description:
+                type: textarea
+                label: Description
+                size: small
+               
+      sidebar:
+        width: 1/2
+        sections:
+          metadata:
+            type: fields
+            fields:
+              work_gallery:
+                type: structure
+                label: Gallery
+                fields:
+                  work_itemType:
+                    type: select
+                    label: Type
+                    options:
+                      image: Image
+                      video: Video File
+                      youtube: YouTube URL
+                    default: image
+                  work_image:
+                    type: files
+                    label: Image
+                    query: model.images
+                    multiple: false
+                    query: site.find("uploads").files
+                    uploads:
+                      parent: site.find("uploads")
+                    layout: cards
+                    when:
+                      work_itemType: image
+                  work_video:
+                    type: files
+                    label: Video File
+                    query: model.videos
+                    multiple: false
+                    accept:
+                      type: video
+                    when:
+                      work_itemType: video
+                  work_youtubeUrl:
+                    type: url
+                    label: YouTube URL
+                    when:
+                      work_itemType: youtube
+  seo: tab/seo
+

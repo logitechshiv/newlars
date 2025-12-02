@@ -1,0 +1,80 @@
+Title: Save for the Moment
+
+----
+
+Work-cover: - file://oofb06urlze2cgas
+
+----
+
+Work-tags: Commissioned, Ride
+
+----
+
+Work-gallery:
+
+- 
+  work_itemtype: image
+  work_image:
+    - file://vfrw73nc0wgnobgu
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: image
+  work_image:
+    - file://necuvxixeabbklmz
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: image
+  work_image:
+    - file://w1ccoixdrfqzbppk
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: youtube
+  work_image: [ ]
+  work_video: [ ]
+  work_youtubeurl: >
+    https://www.youtube.com/watch?v=LKE-6vGtrCg
+- 
+  work_itemtype: image
+  work_image:
+    - file://ggynt2iyfvbrns61
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: image
+  work_image:
+    - file://fqwovzzdkztt9tab
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: image
+  work_image:
+    - file://ofzyp7drs6qcpplj
+  work_video: [ ]
+  work_youtubeurl: ""
+
+----
+
+Seodesc: 
+
+----
+
+Seoauthor: 
+
+----
+
+Seotags: 
+
+----
+
+Twitterimage: 
+
+----
+
+Fbtwdesc: 
+
+----
+
+Uuid: khfswggrb1y42cvu

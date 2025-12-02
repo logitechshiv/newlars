@@ -1,0 +1,58 @@
+Title: Lars Borges
+
+----
+
+Mainmenu:
+
+- 
+  linktitle: Work
+  link: page://k58jmnzlv9edzzt5
+- 
+  linktitle: Books
+  link: page://hhgiybumpc53xxja
+- 
+  linktitle: Journal
+  link: page://6zn9y8vu3guu48sw
+- 
+  linktitle: About
+  link: page://5wd6r2ev2n8cdfmd
+
+----
+
+Copyright: Copyright 2006-2026 © Lars Borges
+
+----
+
+Email: studio@larsborges.com
+
+----
+
+Phone: +49 (0) 179 4687132
+
+----
+
+Instagram: https://www.instagram.com/larsborges
+
+----
+
+Imprint-link-field: page://ufxreug1t8p98dly
+
+----
+
+Seodesc: Lars Borges is a Stills and Motion Photographer working out of Berlin, Germany and Paris, France.
+
+----
+
+Seoauthor: Lars Borges, Photographer
+
+----
+
+Seotags: Photographer, Commercial, Photography, People, Portrait, Portrait Photography, Advertising, Car Photography, Transport Photography, People Photography, Berlin, Paris, Videographer, Emeis Deubel, Photography Prints, Artwork, Mercedes Benz, BMW, Volkswagen, Commercial Photographer, Magazine Photographer, Editorial Photographer, Editorial, Creative, Magazine, Photo Book, Imperial County, We Share the Meal, Emop Berlin, Music, Kehrer Verlag, Videography, Motion, Bewegtbild
+
+----
+
+Twitterimage: - file://06lczapsrvdrhn0u
+
+----
+
+Fbtwdesc: Lars Borges is a Stills and Motion Photographer working out of Berlin, Germany and Paris, France.

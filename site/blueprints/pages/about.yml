@@ -1,0 +1,21 @@
+title: About Page
+
+options:
+  delete: false
+  changeTemplate: false
+
+tabs:
+  content:
+    label: Content
+    columns:
+      main:
+        width: 1/1
+        sections:
+          content:
+            type: fields
+            fields:
+              about_blocks:
+                type: blocks
+                label: About Content
+  seo: tab/seo
+
