@@ -2,15 +2,23 @@ Title: A Strange Paradise
 
 ----
 
-Work-cover: - file://vmqruq6iy3eoqyqk
+Work-covertype: image
 
 ----
 
-Work-text: 
+Work-coverimage: - file://dx6c4negva3a3omm
 
 ----
 
-Work-tags: Commissioned, Portrait
+Work-covervideo: 
+
+----
+
+Work-coveryoutube: 
+
+----
+
+Work-description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
 
 ----
 
@@ -46,6 +54,50 @@ Work-gallery:
     - file://dx6c4negva3a3omm
   work_video: [ ]
   work_youtubeurl: ""
+- 
+  work_itemtype: image
+  work_image:
+    - file://jiahsiposlhfd91x
+  work_video: [ ]
+  work_youtubeurl: ""
+- 
+  work_itemtype: image
+  work_image:
+    - file://jb5cdo5k4u4lows4
+  work_video: [ ]
+  work_youtubeurl: ""
+
+----
+
+Seodesc: 
+
+----
+
+Seoauthor: 
+
+----
+
+Seotags: 
+
+----
+
+Twitterimage: 
+
+----
+
+Fbtwdesc: 
+
+----
+
+Work-cover: - file://vmqruq6iy3eoqyqk
+
+----
+
+Work-text: 
+
+----
+
+Work-tags: Commissioned, Portrait
 
 ----
 

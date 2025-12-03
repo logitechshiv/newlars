@@ -4,6 +4,11 @@ use Kirby\Cms\App;
 use Kirby\Cms\Site;
 use Kirby\Toolkit\Collection;
 
+// Load custom helpers
+if (file_exists(__DIR__ . '/../helpers/youtubePrivacy.php')) {
+    require_once __DIR__ . '/../helpers/youtubePrivacy.php';
+}
+
 return [
     'debug' => true,
     'hooks' => [

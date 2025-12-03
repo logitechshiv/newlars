@@ -14,25 +14,40 @@ tabs:
           content:
             type: fields
             fields:
-              work_cover:
+              work_coverType:
+                type: select
+                label: Cover Type
+                options:
+                  image: Image
+                  video: Video File
+                  youtube: YouTube URL
+                default: image
+              work_coverimage:
                 type: files
                 label: Cover Image
                 multiple: false
-                query: model.images
                 query: site.find("uploads").files
                 uploads:
                   parent: site.find("uploads")
                 layout: cards
                 image:
                   cover: true
-              work_tags:
-                type: tags
-                label: Tags / Categories
-                options:
-                  - Commissioned
-                  - Personal
-                  - Portrait
-                  - Ride
+                when:
+                  work_coverType: image
+              work_coverVideo:
+                type: files
+                label: Cover Video File
+                multiple: false
+                query: model.videos
+                accept:
+                  type: video
+                when:
+                  work_coverType: video
+              work_coverYoutube:
+                type: url
+                label: Cover YouTube URL
+                when:
+                  work_coverType: youtube
               work_description:
                 type: textarea
                 label: Description

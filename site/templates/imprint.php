@@ -28,8 +28,8 @@
           </div>
           <div class="w-full xxl:max-w-1024 px-16 xl:p-0">
               <div class="mixed_content">
-              <?php if ($page->about_blocks()->isNotEmpty()): ?>
-                  <?= $page->about_blocks()->toBlocks()->toHtml() ?>
+              <?php if ($page->imprint_blocks()->isNotEmpty()): ?>
+                  <?= $page->imprint_blocks()->toBlocks()->toHtml() ?>
               <?php endif; ?>
               </div>
           </div>

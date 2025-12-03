@@ -1,7 +1,6 @@
 title: Work
 
 options:
-  delete: false
   changeTemplate: false
 
 tabs:
@@ -32,12 +31,8 @@ tabs:
             templates:
               - work-post
             image:
-              query: page.work_cover.toFile
+              query: page.work_coverimage.toFile
               cover: true
-            columns:
-              work_tags:
-                label: Tags
-                type: tags
       - width: 1/4
         sections:
          

@@ -92,7 +92,7 @@ tabs:
             templates:
               - work-post
             image:
-              query: page.work_cover.toFile
+              query: page.work_coverimage.toFile
               cover: true
             columns:
               work_tags:

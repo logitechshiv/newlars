@@ -1,0 +1,118 @@
+Title: Diary
+
+----
+
+Journal-gallery:
+
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://fqwovzzdkztt9tab
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://idimgl7isgw8jxlx
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: youtube
+  journal_image: [ ]
+  journal_video: [ ]
+  journal_youtubeurl: >
+    https://www.youtube.com/watch?v=GBtUCl-xr6U
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://t5iwkssklqvafluu
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://q2p1rhiqcfb5ukle
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://jiahsiposlhfd91x
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: youtube
+  journal_image: [ ]
+  journal_video: [ ]
+  journal_youtubeurl: >
+    https://www.youtube.com/watch?v=VErZZomv7NI
+- 
+  journal_itemtype: video
+  journal_image: [ ]
+  journal_video:
+    - file://0qw8ldbvx4f0mnca
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://jlyy9h5mgwuunpid
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://hcu9l4c8h3l3n2ap
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://l87snbvgk2ym6mmk
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://omzvr0ofmgvohyzj
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://viifvle0jfdnkecn
+  journal_video: [ ]
+  journal_youtubeurl: ""
+- 
+  journal_itemtype: image
+  journal_image:
+    - file://4bjfcfo2yy0s72dw
+  journal_video: [ ]
+  journal_youtubeurl: ""
+
+----
+
+Seodesc: 
+
+----
+
+Seoauthor: 
+
+----
+
+Seotags: 
+
+----
+
+Twitterimage: 
+
+----
+
+Fbtwdesc: 
+
+----
+
+Text: 
+
+----
+
+Uuid: 6zn9y8vu3guu48sw

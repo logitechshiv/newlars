@@ -11,7 +11,7 @@ Mainmenu:
   linktitle: Books
   link: page://hhgiybumpc53xxja
 - 
-  linktitle: Journal
+  linktitle: Diary
   link: page://6zn9y8vu3guu48sw
 - 
   linktitle: About

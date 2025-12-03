@@ -2,11 +2,23 @@ Title: Save for the Moment
 
 ----
 
-Work-cover: - file://oofb06urlze2cgas
+Work-covertype: youtube
 
 ----
 
-Work-tags: Commissioned, Ride
+Work-coverimage: 
+
+----
+
+Work-covervideo: 
+
+----
+
+Work-coveryoutube: https://www.youtube.com/watch?v=G0XUimJbz44
+
+----
+
+Work-description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
 
 ----
 
@@ -74,6 +86,14 @@ Twitterimage:
 ----
 
 Fbtwdesc: 
+
+----
+
+Work-cover: - file://oofb06urlze2cgas
+
+----
+
+Work-tags: Commissioned, Ride
 
 ----
 

@@ -8,16 +8,24 @@
             </h1>
             <div class="h-[calc(100dvh-116px)] xl:h-[calc(100dvh-148px)] flex items-center justify-center">
                 <?php
-                // Get all work-post pages with cover images
+                // Get all work-post pages with cover images (prioritize images for home page)
                 $workPages = $site->find('work')?->children()->template('work-post')->filter(function($page) {
-                    return $page->work_cover()->toFile() !== null;
+                    $coverType = $page->work_coverType()->value() ?: 'image';
+                    if ($coverType === 'image') {
+                        return $page->work_coverimage()->toFile() !== null;
+                    }
+                    return false; // Only show images on home page
                 });
                 
-                // Get random cover image
+                // Get random cover image - ensure different image on each refresh
                 $randomImage = null;
+                $randomPage = null;
                 if ($workPages && $workPages->count() > 0) {
-                    $randomPage = $workPages->shuffle()->first();
-                    $randomImage = $randomPage->work_cover()->toFile();
+                    // Use random() method which properly randomizes each time
+                    $randomPage = $workPages->random(1)->first();
+                    if ($randomPage) {
+                        $randomImage = $randomPage->work_coverimage()->toFile();
+                    }
                 }
                 ?>
                 <?php if ($randomImage): ?>
@@ -29,7 +37,7 @@
                          id="randomImage">
                 <?php else: ?>
                     <img loading="lazy" 
-                         src="<?= url('assets/images/image-9.webp') ?>" 
+                         src="<?= url('assets/images/image-9.webp') ?>"
                          alt="Random picture from gallery"
                          class="size-full object-contain" 
                          fetchpriority="high" 

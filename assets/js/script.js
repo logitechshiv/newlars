@@ -193,3 +193,152 @@ setTimeout(() => {
   });
 
 }, 5000);
+
+// Gallery Lazy Loading with Infinite Scroll
+(function() {
+  // Support diary gallery, work gallery, and work-post gallery
+  const galleryContainer = document.getElementById('gallery-container') || 
+                          document.getElementById('work-gallery-container') || 
+                          document.getElementById('work-post-gallery-container');
+  if (!galleryContainer) return;
+
+  const lazyItems = galleryContainer.querySelectorAll('.lazy-load');
+  if (lazyItems.length === 0) return;
+
+  // Intersection Observer for lazy loading
+  const observerOptions = {
+    root: null,
+    rootMargin: '200px', // Start loading 200px before item is visible
+    threshold: 0.1
+  };
+
+  const loadItem = function(item) {
+    const type = item.dataset.type;
+    const lazyClass = item.classList.contains('lazy-load');
+
+    if (!lazyClass) return; // Already loaded
+
+    // For work-post gallery, items are the container themselves
+    // For work gallery, find the work-cover container
+    const coverContainer = item.querySelector('.work-cover') || item;
+
+    if (type === 'image') {
+      const src = item.dataset.src;
+      const alt = item.dataset.alt || '';
+      if (src) {
+        const img = document.createElement('img');
+        img.loading = 'lazy';
+        img.src = src;
+        img.alt = alt;
+        // Check if this is work-post gallery (has pb-16/pb-32 classes)
+        const hasMb12 = item.classList.contains('pb-16') || item.classList.contains('pb-32');
+        img.className = hasMb12 ? 'w-full mb-12' : 'w-full';
+        coverContainer.innerHTML = '';
+        coverContainer.appendChild(img);
+        item.classList.remove('lazy-load');
+      }
+    } else if (type === 'video') {
+      const src = item.dataset.src;
+      const mime = item.dataset.mime;
+      if (src) {
+        const video = document.createElement('video');
+        video.className = 'w-full';
+        video.controls = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = 'metadata';
+        video.setAttribute('data-video-src', src);
+        
+        const source = document.createElement('source');
+        source.src = src;
+        // Use provided mime type, or fallback to detection from extension
+        if (mime) {
+          source.type = mime;
+        } else {
+          const ext = src.split('.').pop().toLowerCase();
+          const mimeTypes = {
+            'mp4': 'video/mp4',
+            'webm': 'video/webm',
+            'ogg': 'video/ogg',
+            'mov': 'video/quicktime',
+            'm4v': 'video/x-m4v'
+          };
+          source.type = mimeTypes[ext] || 'video/mp4'; // Default to MP4 for Safari compatibility
+        }
+        
+        video.appendChild(source);
+        video.appendChild(document.createTextNode('Your browser does not support the video tag.'));
+        
+        // Check if this is work-post gallery (has mb-12 class pattern)
+        const hasMb12 = item.classList.contains('pb-16') || item.classList.contains('pb-32');
+        if (hasMb12) {
+          video.className = 'w-full mb-12';
+        }
+        
+        coverContainer.innerHTML = '';
+        coverContainer.appendChild(video);
+        item.classList.remove('lazy-load');
+      }
+    } else if (type === 'youtube') {
+      const youtubeUrl = item.dataset.youtubeUrl;
+      if (youtubeUrl) {
+        // Extract YouTube video ID from URL
+        const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+        const videoId = videoIdMatch ? videoIdMatch[1] : null;
+        
+        if (videoId) {
+          const wrapper = document.createElement('div');
+          // Check if this is work-post gallery (has mb-12 class pattern)
+          const hasMb12 = item.classList.contains('pb-16') || item.classList.contains('pb-32');
+          wrapper.className = 'video-wrapper';
+          wrapper.style.cssText = 'position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;' + (hasMb12 ? ' margin-bottom: 3rem;' : '');
+          
+          const iframe = document.createElement('iframe');
+          // Use privacy-enhanced mode to reduce tracking/console errors
+          iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?modestbranding=1&rel=0`;
+          iframe.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%;';
+          iframe.frameBorder = '0';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          iframe.allowFullscreen = true;
+          iframe.loading = 'lazy';
+          
+          wrapper.appendChild(iframe);
+          coverContainer.innerHTML = '';
+          coverContainer.appendChild(wrapper);
+          item.classList.remove('lazy-load');
+        }
+      }
+    }
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        loadItem(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all lazy items
+  lazyItems.forEach(item => {
+    observer.observe(item);
+  });
+})();
+
+// Suppress YouTube/Google Ads console errors (they don't affect functionality)
+(function() {
+  const originalError = console.error;
+  console.error = function(...args) {
+    const message = args.join(' ');
+    // Filter out YouTube/Google Ads tracking errors
+    if (
+      message.includes('googleads.g.doubleclick.net') ||
+      message.includes('youtube.com/pagead') ||
+      message.includes('CORS policy') && message.includes('youtube')
+    ) {
+      return; // Suppress these errors
+    }
+    originalError.apply(console, args);
+  };
+})();
