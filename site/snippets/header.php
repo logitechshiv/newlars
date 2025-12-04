@@ -22,19 +22,19 @@
     </a>
 
     <?php if ($page->isHomePage()): ?>
-    <div id="loader" class="fixed inset-0 bg-white grid place-items-center z-[9999]">
+    <!-- <div id="loader" class="fixed inset-0 bg-white grid place-items-center z-[9999]">
         <div class="text-black text-4xl xl:text-6xl font-bold counter">0%</div>
         <div
             class="absolute bottom-0 left-0 w-full h-0 bg-black reveal text-white text-[clamp(2.1875rem,1.6875rem+2.5vw,4.6875rem)] font-bold counter grid place-items-center uppercase tracking-widest">
             Lars Borges
         </div>
-    </div>
+    </div> -->
     <?php endif; ?>
 
-    <header class="p-16 xl:py-24 xl:px-32 sticky top-0 z-50 bg-white">
+    <header class="p-16 xl:py-24 xl:px-32 sticky top-0 z-50 bg-white overflow-hidden">
         <div class="container">
             <div class="flex items-center justify-between">
-                <a href="<?= $site->url() ?>" class="text-lg">
+                <a href="<?= $site->url() ?>" class="animated_link text-lg">
                     <?= $site->title() ?>
                 </a>
                 <button aria-label="Primary menu toggler"
@@ -81,16 +81,18 @@
             </nav>
             <ul class="text-[15px] space-y-4">
                 <li>
-                    <a href="tel:<?= $site->phone() ?>" class="fade_in"><?= $site->phone() ?></a>
+                    <a href="tel:<?= str_replace(' ', '', $site->phone()) ?>" class="animated_link fade_in"><?= $site->phone() ?></a>
                 </li>
                 <li>
-                    <a class="underline underline-offset-4 fade_in"
+                    <a class="animated_link fade_in"
                         href="mailto:<?= $site->email() ?>"><?= $site->email() ?></a>
                 </li>
             </ul>
             <?php if ($site->instagram()->isNotEmpty()): ?>
-            <a href="<?= $site->instagram()->toUrl() ?>" target="_blank"
-                class="absolute right-32 bottom-32 text-xl xl:text-2xl fade_in">Instagram</a>
+                <div class="absolute right-32 bottom-32">
+                    <a href="<?= $site->instagram()->toUrl() ?>" target="_blank"
+                        class="text-xl xl:text-2xl animated_link fade_in">Instagram</a>
+                </div>
             <?php endif; ?>
         </div>
     </header>

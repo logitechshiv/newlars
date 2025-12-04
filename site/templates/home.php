@@ -6,7 +6,7 @@
             <h1 class="sr-only">
                 Lars Borges
             </h1>
-            <div class="h-[calc(100dvh-116px)] xl:h-[calc(100dvh-148px)] flex items-center justify-center">
+            <div class="h-[calc(100dvh-131px)] xl:h-[calc(100dvh-150px)] flex items-center justify-center">
                 <?php
                 // Get all work-post pages with cover images (prioritize images for home page)
                 $workPages = $site->find('work')?->children()->template('work-post')->filter(function($page) {
@@ -29,14 +29,25 @@
                 }
                 ?>
                 <?php if ($randomImage): ?>
-                    <img loading="lazy" 
-                         src="<?= $randomImage->url() ?>" 
-                         alt="<?= $randomImage->alt()->or($randomPage->title()) ?>"
-                         class="size-full object-contain" 
-                         fetchpriority="high" 
-                         id="randomImage">
+                    <img
+                        src="<?= $randomImage->thumb(['width' => 1500])->url() ?>"
+                        srcset="
+                        <?= $randomImage->thumb(['width' => 300])->url() ?> 300w,
+                        <?= $randomImage->thumb(['width' => 600])->url() ?> 600w,
+                        <?= $randomImage->thumb(['width' => 900])->url() ?> 900w,
+                        <?= $randomImage->thumb(['width' => 1200])->url() ?> 1200w,
+                        <?= $randomImage->thumb(['width' => 1500])->url() ?> 1500w
+                        "
+                        sizes="100vw"
+                        width="<?= $randomImage->width() ?>"
+                        height="<?= $randomImage->height() ?>"
+                        loading="lazy"
+                        fetchpriority="high"
+                        alt="<?= $randomImage->alt()->or($randomPage->title()) ?>"
+                        class="size-full object-contain"  
+                    />
                 <?php else: ?>
-                    <img loading="lazy" 
+                    <img 
                          src="<?= url('assets/images/image-9.webp') ?>"
                          alt="Random picture from gallery"
                          class="size-full object-contain" 

@@ -16,6 +16,7 @@
                 $gallery = $page->journal_gallery()->toStructure();
                 $itemsPerPage = 4; // Initial items to load
                 $itemIndex = 0;
+                $imageIndex = 0;
                 
                 foreach ($gallery as $item):
                     $itemType = $item->journal_itemType()->value();
@@ -23,13 +24,30 @@
                     $lazyClass = $itemIndex > $itemsPerPage ? 'lazy-load' : '';
                 ?>
                     <?php if ($itemType === 'image' && $item->journal_image()->toFile()): ?>
-                        <?php $image = $item->journal_image()->toFile(); ?>
+                        <?php 
+                        $image = $item->journal_image()->toFile();
+                        $imageIndex++;
+                        ?>
                         <div class="gallery-item image <?= $lazyClass ?>" data-type="image" <?= $lazyClass ? 'data-src="' . $image->url() . '"' : '' ?>>
                             <?php if (!$lazyClass): ?>
-                                <img loading="lazy" 
-                                     src="<?= $image->url() ?>" 
-                                     alt="<?= $image->alt()->or($page->title()) ?>"
-                                     class="w-full">
+                            
+                                     <img
+                        src="<?= $image->thumb(['width' => 1500])->url() ?>"
+                        srcset="
+                        <?= $image->thumb(['width' => 300])->url() ?> 300w,
+                        <?= $image->thumb(['width' => 600])->url() ?> 600w,
+                        <?= $image->thumb(['width' => 900])->url() ?> 900w,
+                        <?= $image->thumb(['width' => 1200])->url() ?> 1200w,
+                        <?= $image->thumb(['width' => 1500])->url() ?> 1500w
+                        "
+                        sizes="100vw"
+                        width="<?= $image->width() ?>"
+                        height="<?= $image->height() ?>"
+                        <?= $imageIndex === 1 ? '' : 'loading="lazy"' ?>
+                        fetchpriority="high"
+                        alt="<?= $image->alt()->or($page->title()) ?>"
+                        class="w-full"  
+                    />
                             <?php endif; ?>
                         </div>
                     <?php elseif ($itemType === 'video' && $item->journal_video()->toFile()): ?>

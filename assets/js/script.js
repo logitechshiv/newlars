@@ -36,11 +36,13 @@ tl2.from('#primaryMenu', {
 
 tl2.from('.fade_in', {
   opacity: 0,
-  stagger: .1,
-  x: -10
+  stagger: .05,
+  x: -20
 });
 
-tl2.pause().reverse();
+// tl2.pause().reverse();
+
+tl2.timeScale(1).pause().timeScale(2).reverse();
 
 const toggleBtns = document.querySelectorAll(".primaryMenuToggler");
 let isOpen = false;
@@ -51,7 +53,7 @@ toggleBtns.forEach(btn => {
     if (!isOpen) {
 
       // Open menu timeline
-      tl2.play();
+      tl2.timeScale(1).play();
 
       // Menu → Close icon
       gsap.to(".menuIcon", {
@@ -71,7 +73,7 @@ toggleBtns.forEach(btn => {
     } else {
 
       // Close menu timeline
-      tl2.reverse();
+      tl2.timeScale(2).reverse();
 
       // Close → Menu icon
       gsap.to(".closeIcon", {
@@ -115,18 +117,16 @@ setTimeout(() => {
   if ('ontouchstart' in window) return; // skip on touch devices
 
   const small = document.createElement('div');
-  const big = document.createElement('div');
 
   small.className = 'cursor-dot cursor-dot--small';
-  big.className = 'cursor-dot cursor-dot--big';
 
   // Basic inline styles so no CSS edits needed
   Object.assign(small.style, {
     position: 'fixed',
     top: '0',
     left: '0',
-    width: '8px',
-    height: '8px',
+    width: '15px',
+    height: '15px',
     'borderRadius': '50%',
     background: '#fff',
     pointerEvents: 'none',
@@ -136,28 +136,12 @@ setTimeout(() => {
     opacity: 0,
   });
 
-  Object.assign(big.style, {
-    position: 'fixed',
-    top: '0',
-    left: '0',
-    width: '40px',
-    height: '40px',
-    'borderRadius': '50%',
-    border: '2px solid #fff',
-    pointerEvents: 'none',
-    transform: 'translate(-50%, -50%)',
-    zIndex: 9999,
-    mixBlendMode: 'difference',
-    opacity: 0,
-  });
-
-  document.body.appendChild(big);
   document.body.appendChild(small);
 
   const pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
   // Initialize positions using gsap.set for pixel-perfect placement
-  gsap.set([small, big], { x: pos.x, y: pos.y });
+  gsap.set([small], { x: pos.x, y: pos.y });
 
   window.addEventListener('mousemove', (e) => {
     pos.x = e.clientX;
@@ -168,60 +152,53 @@ setTimeout(() => {
       opacity: 1,
       x: pos.x,
       y: pos.y,
-      duration: 0.08,
+      duration: .5,
       ease: 'power3.out',
       overwrite: true
     });
 
-    // Big dot — trailing
-    gsap.to(big, {
-      opacity: 1,
-      x: pos.x,
-      y: pos.y,
-      duration: 0.38,
-      ease: 'power3.out',
-      overwrite: true
-    });
   }, { passive: true });
 
   // Optional: hide when leaving the window
   window.addEventListener('mouseleave', () => {
-    gsap.to([small, big], { opacity: 0, duration: 0.3, overwrite: true });
+    gsap.to([small], { opacity: 0, duration: 0.3, overwrite: true });
   });
   window.addEventListener('mouseenter', () => {
-    gsap.to([small, big], { opacity: 1, duration: 0.25, overwrite: true });
+    gsap.to([small], { opacity: 1, duration: 0.25, overwrite: true });
   });
 
 }, 5000);
 
 // Gallery Lazy Loading with Infinite Scroll
 (function() {
-  // Support diary gallery, work gallery, and work-post gallery
-  const galleryContainer = document.getElementById('gallery-container') || 
-                          document.getElementById('work-gallery-container') || 
-                          document.getElementById('work-post-gallery-container');
+  // Support diary gallery, work gallery, work-post gallery, books gallery, and book-post gallery
+  const galleryContainer = document.getElementById('gallery-container') ||
+                          document.getElementById('work-gallery-container') ||
+                          document.getElementById('work-post-gallery-container') ||
+                          document.getElementById('books-gallery-container') ||
+                          document.getElementById('book-post-gallery-container');
   if (!galleryContainer) return;
-
+ 
   const lazyItems = galleryContainer.querySelectorAll('.lazy-load');
   if (lazyItems.length === 0) return;
-
+ 
   // Intersection Observer for lazy loading
   const observerOptions = {
     root: null,
     rootMargin: '200px', // Start loading 200px before item is visible
     threshold: 0.1
   };
-
+ 
   const loadItem = function(item) {
     const type = item.dataset.type;
     const lazyClass = item.classList.contains('lazy-load');
-
+ 
     if (!lazyClass) return; // Already loaded
-
-    // For work-post gallery, items are the container themselves
-    // For work gallery, find the work-cover container
-    const coverContainer = item.querySelector('.work-cover') || item;
-
+ 
+    // For work-post/book-post gallery, items are the container themselves
+    // For work/books gallery, find the cover container
+    const coverContainer = item.querySelector('.work-cover') || item.querySelector('.book-cover') || item;
+ 
     if (type === 'image') {
       const src = item.dataset.src;
       const alt = item.dataset.alt || '';
@@ -248,7 +225,7 @@ setTimeout(() => {
         video.playsInline = true;
         video.preload = 'metadata';
         video.setAttribute('data-video-src', src);
-        
+       
         const source = document.createElement('source');
         source.src = src;
         // Use provided mime type, or fallback to detection from extension
@@ -265,16 +242,16 @@ setTimeout(() => {
           };
           source.type = mimeTypes[ext] || 'video/mp4'; // Default to MP4 for Safari compatibility
         }
-        
+       
         video.appendChild(source);
         video.appendChild(document.createTextNode('Your browser does not support the video tag.'));
-        
+       
         // Check if this is work-post gallery (has mb-12 class pattern)
         const hasMb12 = item.classList.contains('pb-16') || item.classList.contains('pb-32');
         if (hasMb12) {
           video.className = 'w-full mb-12';
         }
-        
+       
         coverContainer.innerHTML = '';
         coverContainer.appendChild(video);
         item.classList.remove('lazy-load');
@@ -285,14 +262,14 @@ setTimeout(() => {
         // Extract YouTube video ID from URL
         const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
         const videoId = videoIdMatch ? videoIdMatch[1] : null;
-        
+       
         if (videoId) {
           const wrapper = document.createElement('div');
           // Check if this is work-post gallery (has mb-12 class pattern)
           const hasMb12 = item.classList.contains('pb-16') || item.classList.contains('pb-32');
           wrapper.className = 'video-wrapper';
           wrapper.style.cssText = 'position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;' + (hasMb12 ? ' margin-bottom: 3rem;' : '');
-          
+         
           const iframe = document.createElement('iframe');
           // Use privacy-enhanced mode to reduce tracking/console errors
           iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?modestbranding=1&rel=0`;
@@ -301,7 +278,7 @@ setTimeout(() => {
           iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
           iframe.allowFullscreen = true;
           iframe.loading = 'lazy';
-          
+         
           wrapper.appendChild(iframe);
           coverContainer.innerHTML = '';
           coverContainer.appendChild(wrapper);
@@ -310,7 +287,7 @@ setTimeout(() => {
       }
     }
   };
-
+ 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -319,13 +296,13 @@ setTimeout(() => {
       }
     });
   }, observerOptions);
-
+ 
   // Observe all lazy items
   lazyItems.forEach(item => {
     observer.observe(item);
   });
 })();
-
+ 
 // Suppress YouTube/Google Ads console errors (they don't affect functionality)
 (function() {
   const originalError = console.error;

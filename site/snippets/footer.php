@@ -1,4 +1,4 @@
-<footer class="p-16 xl:py-24 xl:px-32">
+<footer class="p-16 xl:py-25 xl:px-32 text-sm">
     <div class="container">
         <div class="flex flex-wrap justify-center items-center text-center gap-x-10">
             <span>

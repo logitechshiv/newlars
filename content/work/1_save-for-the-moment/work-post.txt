@@ -6,7 +6,7 @@ Work-covertype: youtube
 
 ----
 
-Work-coverimage: 
+Work-coverimage: - file://q2p1rhiqcfb5ukle
 
 ----
 

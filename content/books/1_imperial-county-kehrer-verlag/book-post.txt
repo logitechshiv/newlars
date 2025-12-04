@@ -42,6 +42,24 @@ Books-gallery:
     - file://im7towdvgmhj5uvy
   books_video: [ ]
   books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://oofb06urlze2cgas
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://idimgl7isgw8jxlx
+  books_video: [ ]
+  books_youtubeurl: ""
+- 
+  books_itemtype: image
+  books_image:
+    - file://avwjj6hu2ilnqvon
+  books_video: [ ]
+  books_youtubeurl: ""
 
 ----
 

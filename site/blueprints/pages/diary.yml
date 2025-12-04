@@ -1,7 +1,6 @@
 title: Diary Page
 
 options:
-  delete: false
   changeTemplate: false
 
 tabs:

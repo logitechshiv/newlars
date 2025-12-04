@@ -14,7 +14,7 @@
                   </h1>
                   <ul class="text-[15px] flex flex-wrap xl:flex-col gap-x-30">
                       <li>
-                          <a href="tel:<?= $site->phone() ?>" class="animated_link">
+                          <a href="tel:<?= str_replace(' ', '', $site->phone()) ?>" class="animated_link">
                             <?= $site->phone() ?>
                           </a>
                       </li>

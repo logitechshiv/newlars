@@ -13,7 +13,8 @@
                     </div>
                     <div class="w-full xxl:max-w-1024" id="work-gallery-container">
                         <?php 
-                        $workPosts = $page->children()->listed()->sortBy('date', 'desc');
+                        // Display work posts in panel order (clients can reorder in backend)
+                        $workPosts = $page->children()->listed()->sortBy('num', 'asc');
                         $itemsPerPage = 4; // Initial items to load
                         $itemIndex = 0;
                         
@@ -41,10 +42,24 @@
                                     <?php if (!$lazyClass): ?>
                                         <?php if ($coverType === 'image' && $workPost->work_coverimage()->toFile()): ?>
                                             <?php $coverImage = $workPost->work_coverimage()->toFile(); ?>
-                                            <img loading="lazy" 
-                                                 src="<?= $coverImage->url() ?>" 
-                                                 alt="<?= $coverImage->alt()->or($workPost->title()) ?>"
-                                                 class="w-full">
+                                           
+                                                 <img
+                                                    src="<?= $coverImage->thumb(['width' => 1500])->url() ?>"
+                                                    srcset="
+                                                    <?= $coverImage->thumb(['width' => 300])->url() ?> 300w,
+                                                    <?= $coverImage->thumb(['width' => 600])->url() ?> 600w,
+                                                    <?= $coverImage->thumb(['width' => 900])->url() ?> 900w,
+                                                    <?= $coverImage->thumb(['width' => 1200])->url() ?> 1200w,
+                                                    <?= $coverImage->thumb(['width' => 1500])->url() ?> 1500w
+                                                    "
+                                                    sizes="100vw"
+                                                    width="<?= $coverImage->width() ?>"
+                                                    height="<?= $coverImage->height() ?>"
+                                                    <?= $itemIndex === 1 ? '' : 'loading="lazy"' ?>
+                                                    fetchpriority="high"
+                                                    alt="<?= $coverImage->alt()->or($workPost->title()) ?>"
+                                                    class="w-full"  
+                                                />
                                         <?php elseif ($coverType === 'video' && $workPost->work_coverVideo()->toFile()): ?>
                                             <?php $coverVideo = $workPost->work_coverVideo()->toFile(); ?>
                                             <video class="w-full" 
